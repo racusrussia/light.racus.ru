@@ -4,9 +4,9 @@
 
 <script>
 
-import StrapiData from '~/api/query/strapi'
-import Info       from '~/components/pages'
-import { Device } from '~/utils/device'
+import StrapiData   from '~/api/query/strapi'
+import Info         from '~/components/pages'
+import { Device }   from '~/utils/device'
 import { PageMeta } from '~/utils/pages'
 
 export default {
@@ -34,14 +34,11 @@ export default {
     const { code } = context.i18n.localeProperties
     const { slug } = context.route.params
     await context.store.dispatch( 'GET_CONFIG', code )
-    const page = await StrapiData.infoPageById( 1)
-
-    const meta         = PageMeta( context, page )
+    const page = await StrapiData.landingPageId( 2 )
+    const meta = PageMeta( context, page )
     return {
-      deviceType:   Device( context ),
-      meta:         meta,
-      slug:         slug,
-      page:         page
+      meta, slug, page,
+      deviceType: Device( context )
     }
   }
 }

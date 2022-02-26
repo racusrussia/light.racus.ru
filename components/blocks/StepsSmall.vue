@@ -16,9 +16,13 @@
              v-text="data.subTitle"></div>
 
         <nuxt-link class="steps__more ra-button ra-button--danger"
-                   v-if="data.slug"
+                   v-if="data.slug && link"
                    :to="localePath(`/applicant/how-it-works`)"
                    v-text="$t('learn_more')"></nuxt-link>
+
+        <span v-else
+              class="steps__more  ra-button--danger"
+              v-text="$t('learn_more')"></span>
       </div>
 
       <div class="steps__steps"
@@ -95,6 +99,11 @@ export default {
       default: false
     },
 
+    link: {
+      type:    Boolean,
+      default: false
+    },
+
     showTitle: {
       type:    Boolean,
       default: true
@@ -108,15 +117,15 @@ export default {
 
   computed: {
     steps () {
-      if (!this.data || !this.data.steps) return
-      return sortByField(this.data.steps, 'order')
+      if ( !this.data || !this.data.steps ) return
+      return sortByField( this.data.steps, 'order' )
     }
   },
 
   methods: {
     getContent ( content ) {
-      if (!content) return
-      return JSON.parse(content)
+      if ( !content ) return
+      return JSON.parse( content )
     }
   }
 }

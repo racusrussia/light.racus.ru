@@ -44,11 +44,11 @@ const StrapiData = class extends Base {
     return await this.http('GET', `/messages?_locale=${ lang }`)
   }
 
-  async infoPageById ( id ) {
+  async landingPageId ( id ) {
     if (process.env.NODE_ENV === 'development') {
       console.log('pageById', id)
     }
-    return await this.http('GET', `/info-pages/${ id }`)
+    return await this.http('GET', `/landings/${ id }`)
   }
 
   async pressAboutUseById ( id ) {

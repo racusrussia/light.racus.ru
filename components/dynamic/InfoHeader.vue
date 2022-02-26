@@ -32,12 +32,12 @@ export default {
 
   props: {
 
-    header:   {
+    header: {
       type:    Object,
       default: ''
     },
 
-    title:    {
+    title: {
       type:    String,
       default: ''
     },
@@ -60,11 +60,10 @@ export default {
 
     bgr () {
       if ( !this.header ) return
-      if ( !this.header.image ) return
-      if ( !this.header.image.formats ) return
+      if ( !this.header.formats ) return
       return ( this.device )
-        ? this.header.image.formats[ `${ this.device }_wp` ].url
-        : this.header.image.formats.desktop.url
+        ? this.header.formats[ `${ this.device }_wp` ].url
+        : this.header.formats.desktop.url
     }
   }
 }
@@ -74,18 +73,24 @@ export default {
 @import "assets/sass/variables"
 
 .ra-header-info
-  min-height: 600px
+  min-height: 400px
   background: $ra-color-base no-repeat center center
   background-size: cover
-  display: flex
-  align-items: center
-  justify-content: center
 
   &__body
-    max-width: $device-tablet-landscape
+    display: flex
+    align-items: center
+    justify-content: center
+    min-height: 400px
+
     text-align: center
+    background-image: linear-gradient(to left top, rgba(0, 42, 82, 0.4), rgba(189, 0, 51, 0.4))
+
+    & > *
+      max-width: $device-tablet-landscape
 
   &__title
+    line-height: 1.3
     color: $ra-color-text-inverse
     margin-bottom: $ra-gutter-medium
     text-shadow: 0 2px 3px rgba(0, 0, 0, .2)

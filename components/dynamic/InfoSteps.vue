@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div class="ra-section ra-steps-outer ra-section--muted ra-section--medium">
 
     <StepsSmall v-if="steps"
                 :padding="false"
+                :link="false"
                 :show-title="false"
-                :content="true"
+                :content="false"
                 :data="steps"/>
 
   </div>
@@ -51,4 +52,8 @@ export default {
 
 <style lang="sass">
 @import "components/blocks/sass/steps"
+.ra-steps-outer
+  margin-top: $ra-gutter-large
+  margin-bottom: $ra-gutter-large
+  border-radius: $ra-border-radius
 </style>

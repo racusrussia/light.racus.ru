@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="">
 
     <InfoHeader :title="title"
                 :sub-title="subTitle"
                 :header="header"/>
 
-    <article class="">
+    <article class="ra-lp">
 
       <h1 class="ra-page__title"
           v-if="!header">
@@ -54,7 +54,7 @@ export default {
   computed: {
 
     title () {
-      return this.page?.pageTitle
+      return this.page?.title
     },
 
     subTitle () {
@@ -84,7 +84,7 @@ export default {
     },
 
     header () {
-      if ( !this.page || !this.page.header || !this.page.header.show ) return false
+      if ( !this.page || !this.page.header ) return false
       return this.page.header || {}
     },
 
@@ -96,3 +96,10 @@ export default {
   }
 }
 </script>
+<style lang="sass">
+@import "assets/sass/variables"
+
+.ra-lp
+  padding-top: $ra-gutter-large
+  padding-bottom: $ra-gutter-large
+</style>
