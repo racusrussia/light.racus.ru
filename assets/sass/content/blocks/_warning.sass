@@ -1,0 +1,24 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+.ra-content
+  &__warning
+    background-color: $ra-color-base
+    color: $ra-color-text-inverse
+    max-width: $ra-content-max-width
+    margin: $ra-gutter-medium auto
+    padding: $ra-gutter
+    border-radius: $ra-border-radius
+    font-size: 1.3rem
+    @media (max-width: $device-phone)
+      margin: $ra-gutter auto
+
+  &__warning-label
+    font-size: 1.3rem
+    margin-bottom: $ra-gutter-small
+    color: $ra-color-text-inverse
+    text-transform: uppercase
+
+    &:last-child
+      margin-bottom: 0

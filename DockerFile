@@ -1,0 +1,41 @@
+FROM node:4.18.1-alpine
+
+# create destination directory
+RUN mkdir -p /usr/src/nuxt-app
+WORKDIR /usr/src/nuxt-app
+
+# update and install dependency
+#RUN apk update && apk upgrade
+#RUN apk add git
+
+# copy the app, note .dockerignore
+COPY . /usr/src/nuxt-app/
+RUN npm install
+
+# build necessary, even if no static files are needed,
+# since it builds the server as well
+RUN npm run build
+
+# expose 3000 on container
+EXPOSE 3000
+
+#ENV NUXT_HOST 0.0.0.0
+#ENV NUXT_PORT 3000
+
+ENV NUXT_ENV_DEVALUE_LOG_LEVEL silent
+ENV NUXT_ENV_DEVALUE_LOG_LIMIT -1
+ENV YANDEX_METRIKA_ID 00000
+ENV HOST 0.0.0.0
+ENV NODE_PORT 3000
+ENV NODE_ENV production
+ENV HOST_HTTP https://api.edurussia.ru
+ENV SITE_URL https://next.edurussia.ru
+ENV NUXT_TELEMETRY_DISABLED 1
+ENV MAPBOX_APIKEY pk.eyJ1IjoieXVyZ2VtYW4iLCJhIjoiY2t1dG0zeGljMGxnZzJucDc4Z2R0cG4zYiJ9.BM_GhM4wU5nSnY2FZHURFg
+ENV MAPBOX_URL https://api.mapbox.com/geocoding/v5/mapbox.places
+ENV IPINFO_TOKEN 8756aa314ad7de
+ENV IPINFO_URL https://ipinfo.io
+ENV MEILISEARCH_URL https://search.edurussia.ru/indexes
+
+# start the app
+CMD [ "npm", "start" ]

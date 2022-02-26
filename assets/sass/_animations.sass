@@ -1,0 +1,68 @@
+
+/** slide-left
+.slide-left-enter,
+.slide-left-leave-to
+  opacity: 0
+  transform: translateX(10%)
+
+.slide-left-enter-active,
+.slide-left-leave-active
+  transition: all .3s ease-in-out
+
+
+/** slide-right
+.slide-right-enter,
+.slide-right-leave-to
+  opacity: 0
+  transform: translateX(-10%)
+
+.slide-right-enter-active,
+.slide-right-leave-active
+  transition: all .3s ease-in-out
+
+/** slide--left-full
+.slide-left-full-enter,
+.slide-left-full-leave-to
+  //opacity: 0
+  transform: scaleX(0)
+
+.slide-left-full-enter-active,
+.slide-left-full-leave-active
+  transition: transform .3s ease-in-out
+
+/** slide-right-full
+.slide-right-full-enter,
+.slide-right-full-leave-to
+  //opacity: 0
+  transform: rotateY(90deg)
+  perspective: 1000px
+  backface-visibility: hidden
+  transform-style: preserve-3d
+  perspective-origin: right center
+
+.slide-right-full-enter-active,
+.slide-right-full-leave-active
+  transition: all 3s ease-in-out
+
+
+/** slide-top
+.slide-top-enter,
+.slide-top-leave-to
+  opacity: 0
+  transform-origin: top center
+  transform: translateY(10%)
+
+.slide-top-enter-active,
+.slide-top-leave-active
+  transition: all .3s ease-in-out
+
+
+/** slide-bottom
+.slide-bottom-enter,
+.slide-bottom-leave-to
+  opacity: 0
+  transform: translateY(-10%)
+
+.slide-bottom-enter-active,
+.slide-bottom-leave-active
+  transition: all .3s ease-in-out

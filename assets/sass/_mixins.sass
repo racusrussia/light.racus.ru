@@ -1,0 +1,22 @@
+@mixin box-shadow($size)
+  box-shadow: 0 2px $size rgba(0, 0, 0, 0.08)
+
+@mixin transition-all($durations)
+  will-change: transform
+  transition: all $durations ease-in-out
+
+@mixin transition-param($parameter)
+  will-change: transform
+  transition: $parameter .3s ease-in-out
+
+@mixin text-overflow
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+@mixin cover
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0

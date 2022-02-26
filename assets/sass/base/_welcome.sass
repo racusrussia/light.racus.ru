@@ -1,0 +1,201 @@
+@import "../variables"
+@import "../mixins"
+
+.ra-welcome
+  position: relative
+  color: $ra-color-text-inverse
+
+  //&__bg-slider
+
+  &__bg
+    //background-size: cover
+    background: no-repeat fixed
+    @include cover
+    will-change: transform
+    transition: opacity 1s ease-in-out
+    opacity: 0
+    background-size: cover
+
+    &--active
+      opacity: 1
+
+  &__nav
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: $ra-gutter-medium
+    margin-top: $ra-gutter-large
+
+  &__nav-link
+    width: 10px
+    height: 10px
+    border-radius: 500px
+    background-color: $ra-color-text-inverse
+    opacity: .5
+    @include transition-param(opacity)
+
+    &--active
+      opacity: 1
+
+  &__inner,
+  &__promo
+    max-width: $device-tablet-landscape
+    margin: 0 auto
+    position: relative
+
+  &__head
+    font-size: 8rem
+    text-align: center
+    padding-top: 3rem
+    max-width: $device-tablet-small
+    margin: 0 auto
+    color: $ra-color-text-inverse
+
+    @media (max-width: $device-tablet-landscape)
+      font-size: 7rem
+    @media (max-width: $device-tablet-portrait)
+      font-size: 6rem
+    @media (max-width: $device-tablet-small)
+      font-size: 5rem
+    @media (max-width: $device-phone)
+      font-size: 3rem
+
+  &__play
+    display: block
+    width: 111px
+    height: 70px
+    background-position: center
+    background-repeat: no-repeat
+    margin: 0 auto
+    background-size: 100% auto
+    cursor: pointer
+    overflow: hidden
+    background-image: url(/images/play-video.svg)
+    -webkit-transition: none
+    opacity: .9
+    @include transition-param(opacity)
+
+    &:hover
+      background-position: bottom center
+      opacity: 1
+
+  &__play-center
+    padding: $ra-gutter-medium
+    border-radius: $ra-border-radius * 3
+    background-color: rgba($ra-color-base, .4)
+    color: $ra-color-text-inverse
+    font-family: $font-family-heading
+    font-size: 1.2rem
+    font-weight: 900
+
+  &__ways
+    text-align: center
+    margin-top: $ra-gutter-medium
+
+  &__ways-action
+    display: inline-block
+    position: relative
+
+  &__promo
+    padding: $ra-gutter-large
+    max-width: 985px
+    position: relative
+    margin: $ra-gutter-large auto 0 auto
+
+    @media (max-width: $device-tablet-small)
+      margin-top: $ra-gutter-medium
+      padding: $ra-gutter-medium
+
+    @media (max-width: $device-phone)
+      margin-top: $ra-gutter
+      padding: $ra-gutter
+
+  &__promo-bg
+    @include cover
+    border-radius: 2rem 2rem 0 0
+    z-index: 0
+    filter: blur(10px)
+    backdrop-filter: blur(10px)
+
+  &__promo-inner
+    position: relative
+    z-index: 2
+    max-width: $device-tablet-portrait
+    margin: 0 auto
+
+  &__promo-head
+    text-align: center
+    font-weight: 700
+    text-transform: uppercase
+    font-size: 2rem
+    font-family: $font-family-heading
+
+  &__promo-desc
+    margin-top: $ra-gutter-small
+    text-align: center
+    font-size: 1.4rem
+
+  &__promo-button-wrapper
+    margin-top: $ra-gutter
+    text-align: center
+
+  &__promo-tabs
+    margin-top: $ra-gutter-xlarge
+    @media (max-width: $device-tablet-portrait)
+      margin-top: $ra-gutter-large
+    @media (max-width: $device-tablet-small)
+      margin-top: $ra-gutter-medium
+    @media (max-width: $device-phone)
+      margin-top: $ra-gutter
+
+  &__promo-tabs-nav
+    display: flex
+    align-items: flex-end
+    justify-content: space-between
+    min-height: 155px
+    @media (max-width: $device-tablet-small)
+      flex-direction: column
+      align-items: center
+      justify-content: center
+
+  &__promo-tabs-nav-link-wrapper
+    max-width: 40%
+    @media (max-width: $device-tablet-small)
+      max-width: 80%
+      margin: $ra-gutter
+
+  &__promo-tabs-nav-link
+    cursor: pointer
+    display: block
+    font-size: 1.2rem
+    text-transform: uppercase
+    text-align: center
+    font-weight: 700
+    font-family: $font-family-heading
+    border-bottom: 2px solid $ra-color-text-muted
+    transition: all .4s ease-in-out
+    @media (max-width: $device-tablet-small)
+      font-size: 1rem
+      line-height: 2
+
+    &--active
+      font-weight: 300
+      line-height: 1
+      font-size: 4rem
+      border-bottom-color: transparent
+      @media (max-width: $device-tablet-landscape)
+        font-size: 3.2rem
+      @media (max-width: $device-tablet-portrait)
+        font-size: 2.8rem
+      @media (max-width: $device-tablet-small)
+        font-size: 2.2rem
+
+  &__promo-tabs-cont
+    margin-top: $ra-gutter-large
+    text-align: center
+
+  &__promo-tabs-tab-text
+    font-size: 1.4rem
+
+  &__promo-more
+    margin-top: $ra-gutter-large

@@ -1,0 +1,42 @@
+@import "../variables"
+@import "../mixins"
+
+.ra-search-input
+  height: $ra-control-height-large
+  background-color: $ra-color-base
+  border-radius: 500px
+  padding: 0 1rem
+  width: 200px
+  display: flex
+  align-items: center
+
+  &--border
+    border: 2px solid rgba($ra-color-text-inverse, .2)
+
+  @media (max-width: $device-tablet-small)
+    padding: 0 .8rem
+    height: $ra-control-height
+
+  [dir=rtl] .ra-search-input
+    flex-direction: row-reverse
+
+  &__field
+    flex: 1
+    min-width: 100px
+    height: $ra-control-height-large
+    line-height: $ra-control-height-large
+    @media (max-width: $device-tablet-small)
+      height: $ra-control-height
+      line-height: $ra-control-height
+
+  &__submit
+    flex: none
+    width: 15px
+    height: 15px
+    cursor: pointer
+    background-size: 15px auto
+    background: top center no-repeat url(/images/sprite-search.png)
+    @include transition-param(background-position)
+
+    &:hover
+      background-position: bottom center

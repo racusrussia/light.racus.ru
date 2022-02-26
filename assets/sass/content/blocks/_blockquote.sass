@@ -1,0 +1,31 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+.ra-content
+  &__blockquote
+    max-width: $ra-content-max-width
+    margin: 0 auto $ra-gutter-medium auto
+    background-color: $ra-color-background-muted
+    padding: $ra-gutter
+    font-style: italic
+    font-size: 1.3rem
+
+    @media (max-width: $device-phone)
+      margin: $ra-gutter auto
+
+    &--center
+      text-align: center
+
+    blockquote
+      font-size: 1.1rem
+
+    figcaption
+      margin-top: $ra-gutter
+      color: $ra-color-text-muted
+
+  [dir=ltr] &__blockquote
+    border-left: 4px solid $ra-color-danger
+
+  [dir=rtl] &__blockquote
+    border-right: 4px solid $ra-color-danger

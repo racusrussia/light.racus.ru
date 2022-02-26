@@ -1,0 +1,154 @@
+@import "assets/sass/variables"
+.steps
+  &--no-padding
+    padding-top: 0
+    padding-bottom: 0
+
+  &__header
+    text-align: center
+
+  &__more
+    margin-top: $ra-gutter-medium
+
+  &__steps
+    margin-top: $ra-gutter-large
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    @media (max-width: $device-tablet-small)
+      margin-top: $ra-gutter-medium
+      flex-direction: column
+      align-items: center
+      gap: $ra-gutter
+
+  &__step
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  &__step-image
+    flex: none
+    width: 312px
+    height: 164px
+    display: flex
+    align-items: center
+    justify-content: center
+    background-size: cover
+    @media (max-width: $device-desktop)
+      width: 270px
+      height: 143px
+    @media (max-width: $device-tablet-landscape)
+      width: 240px
+      height: 127px
+    @media (max-width: $device-tablet-portrait)
+      width: 200px
+      height: 105px
+
+    &--1,
+    &--2
+      position: relative
+
+      &:after
+        transform: scale(.9)
+        display: block
+        content: ""
+        position: absolute
+        width: 188px
+        height: 40px
+        background-size: 188px 40px
+        background: 50% 50% no-repeat
+        overflow: hidden
+        @media (max-width: $device-tablet-landscape)
+          width: 160px
+          height: 34px
+          background-size: 160px 34px
+        @media (max-width: $device-tablet-portrait)
+          width: 120px
+          height: 25px
+          background-size: 120px 25px
+        @media (max-width: $device-tablet-small)
+          display: none
+
+    &--1,
+    &--2
+      margin-right: $ra-gutter-large
+      @media (max-width: $device-tablet-landscape)
+        margin-right: $ra-gutter-medium
+      @media (max-width: $device-tablet-small)
+        margin-right: 0
+
+    &--1
+      &:after
+        top: 10%
+        right: -80px
+        background-image: url(/images/step-1-line.png)
+        @media (max-width: $device-tablet-portrait)
+          right: -50px
+
+    [dir=rtl] &--1
+      &:after
+        left: -80px
+        right: auto
+        @media (max-width: $device-tablet-portrait)
+          left: -50px
+          right: auto
+
+    &--2
+      &:after
+        bottom: 10%
+        right: -110px
+        background-image: url(/images/step-2-line.png)
+        @media (max-width: $device-tablet-portrait)
+          right: -90px
+
+    [dir=rtl] &--2
+      &:after
+        left: -110px
+        right: auto
+        @media (max-width: $device-tablet-portrait)
+          left: -90px
+          right: auto
+
+  &__step-button
+    margin-top: $ra-gutter-medium
+    @media (max-width: $device-tablet-small)
+      margin-top: $ra-gutter
+
+.steps-content
+  max-width: 1500px
+  margin: $ra-gutter-xlarge auto
+
+.steps-content-step
+  padding: $ra-gutter-large $ra-gutter-medium
+  display: flex
+
+  &__idx
+    width: 30%
+    flex: none
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    font-size: 13rem
+    line-height: .8
+    font-weight: 200
+    padding: 0 $ra-gutter-large
+    color: $ra-color-background-muted
+
+  &__image
+    align-self: flex-start
+
+  &__title
+    max-width: 600px
+  &__content
+    max-width: 720px
+    flex: 1
+    min-width: 300px
+
+    .ra-h
+      margin-top: 0
+
+  &:nth-child(2n)
+    background-color: $ra-color-background-muted
+
+  &:nth-child(2n) &__idx
+    color: $ra-color-text-inverse

@@ -1,0 +1,76 @@
+@import "../variables"
+@import "../mixins"
+
+///////  Text  ///////
+
+.ra-text-small
+  font-size: .75rem
+
+.ra-text-large
+  font-size: 1.1rem
+
+.ra-ellipsis
+  @include text-overflow
+
+.ra-bold
+  font-weight: 900
+
+.ra-text-center
+  text-align: center
+
+///////  Heading  ///////
+
+h1, h2, h3, h4, h5, h6 .ra-h
+  font-family: $font-family-heading
+  font-weight: 900
+  color: $ra-color-base
+  line-height: 1.15
+
+h1, h2, h3, h4, h5, h6
+  margin-bottom: 1rem
+
+h1, .ra-h--1
+  font-size: 4rem
+  padding: 0 $ra-gutter
+  @media (max-width: $device-desktop)
+    font-size: 3rem
+  @media (max-width: $device-tablet-landscape)
+    font-size: 2rem
+  @media (max-width: $device-phone)
+    font-size: 1.8rem
+
+h2, .ra-h--2
+  font-size: 3rem
+  padding: 0 $ra-gutter
+  @media (max-width: $device-desktop)
+    font-size: 2.4rem
+  @media (max-width: $device-tablet-landscape)
+    font-size: 1.9rem
+  @media (max-width: $device-phone)
+    font-size: 1.6rem
+
+h1, h2
+  margin-top: $ra-gutter-medium * 1.4
+  text-transform: uppercase
+
+h3, h4, h5, h6
+  margin-top: $ra-gutter-medium
+
+h3, .ra-h--3
+  font-size: 1.4rem
+
+h4, .ra-h--4
+  font-size: 1.2rem
+
+h5, .ra-h--5
+  font-size: 1rem
+
+h6, .ra-h--6
+  font-size: .8rem
+
+.ra-h
+  &--xlarge
+    font-size: $ra-gutter-medium * 3
+
+  &--light
+    font-weight: 100

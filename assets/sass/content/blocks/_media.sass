@@ -1,0 +1,72 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+.ra-content
+
+  //&__media-image
+
+
+  &__media
+    max-width: $ra-content-max-width
+    margin: $ra-gutter-medium auto
+    line-height: 1.7
+
+    &--stretch
+      max-width: $ra-content-large-max-width
+      display: flex
+      align-items: center
+      flex-direction: column
+
+    &--border
+      padding: $ra-gutter-small
+      border: $ra-border-width solid $ra-border
+      border-radius: $ra-border-radius
+
+  &__media-image
+    margin: 0 auto
+
+  &__media-caption
+    max-width: $ra-content-max-width
+    font-size: 1.3rem
+    text-align: center
+    margin-top: $ra-gutter
+    color: $ra-color-text-muted
+    @media (max-width: $device-phone)
+      font-size: 1.1rem
+
+  [dir=ltr] &__media-caption
+    text-align: left
+
+  [dir=rtl] &__media-caption
+    text-align: right
+
+  &__media--bgr
+    max-width: $ra-content-large-max-width
+    display: flex
+    align-items: center
+    flex-direction: column
+    @media (min-width: $device-desktop)
+      flex-direction: row
+
+    @media (max-width: $device-phone)
+      margin: $ra-gutter auto
+
+    &:nth-of-type(2n)
+      @media (min-width: $device-desktop)
+        flex-direction: row-reverse
+        .ra-content__media-caption
+          margin: 0 $ra-gutter-large 0 0
+
+    & > .ra-content__media-caption
+      color: $ra-color-text
+      @media (min-width: $device-desktop)
+        margin-top: 0
+        margin-left: $ra-gutter-large
+        width: calc(50% - 4rem)
+
+    & > .ra-content__media-image
+      margin-left: 0
+      @media (min-width: $device-desktop)
+        margin-top: 0
+        width: calc(50% - 4rem)

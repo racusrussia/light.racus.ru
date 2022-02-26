@@ -1,0 +1,58 @@
+@import "../variables"
+
+.ra-flex
+  display: flex
+
+  &.wrap
+    flex-wrap: wrap
+
+  &.center
+    justify-content: center
+
+  &.start
+    align-items: flex-start
+
+  &.end
+    align-items: flex-end
+
+  &.middle
+    align-items: center
+
+  &.margin-rows
+    & > *
+      &:not(:last-child)
+        margin-right: var(--cui-margin)
+
+        @media (max-width: $device-tablet-portrait)
+          margin-right: var(--cui-margin-small)
+
+    &.small
+      & > *
+        &:not(:last-child)
+          margin-right: var(--cui-margin-xsmall)
+
+  &.column
+    flex-direction: column
+
+    &.margin-rows
+      & > *
+        &:not(:last-child)
+          margin-right: 0
+          margin-bottom: var(--cui-margin)
+
+          @media (max-width: $device-tablet-portrait)
+            margin-bottom: var(--cui-margin-small)
+
+      &.small
+        & > *
+          &:not(:last-child)
+
+            margin-bottom: var(--cui-margin-xsmall)
+
+.ra-flex-none
+  flex: none
+
+.ra-flex-1
+  flex: 1
+  min-height: 0
+  min-width: 0

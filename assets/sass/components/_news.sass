@@ -1,0 +1,145 @@
+@import "../variables"
+@import "../mixins"
+
+.ra-news-filter
+  display: flex
+  gap: $ra-gutter-small
+  flex-wrap: wrap
+  align-items: center
+  justify-content: center
+  margin-bottom: $ra-gutter-medium
+
+.ra-news
+  &__load-more
+    margin-top: $ra-gutter-medium
+    display: flex
+    align-items: center
+    justify-content: center
+
+  &__share
+    max-width: $device-tablet-portrait
+    border-radius: $ra-border-radius * 3
+    padding: $ra-gutter-large
+    text-align: center
+    margin: $ra-gutter-large auto
+    background-size: cover
+    background-image: url(/images/share-bg.jpg)
+
+  &__share-name
+    text-transform: uppercase
+    color: $ra-color-text-inverse
+    margin-bottom: $ra-gutter
+    font-family: $font-family-heading
+    font-size: 2.7rem
+
+  &__share-icon
+    margin: 0 $ra-gutter-small
+
+.ra-news-tags
+  display: flex
+  gap: $ra-gutter-small
+  flex-wrap: wrap
+  align-items: center
+  justify-content: center
+  margin-bottom: $ra-gutter-medium
+
+  &__item
+    padding: 0 $ra-gutter
+    border-radius: 500px
+    color: $ra-color-danger
+    background-color: $ra-color-background-muted
+    line-height: 2.2rem
+    white-space: nowrap
+    text-decoration: none
+
+    &:hover
+      background-color: $ra-color-danger
+      color: $ra-color-text-inverse
+
+.ra-news-list
+  display: flex
+  gap: 2rem
+  flex-wrap: wrap
+
+.ra-news-list-item
+  color: $ra-color-text
+  text-decoration: none
+  width: calc(33% - 2rem)
+  @media (max-width: $device-tablet-landscape)
+    width: calc(50% - 2rem)
+  @media (max-width: $device-tablet-small)
+    width: 100%
+
+  &__picture
+    position: relative
+    border-radius: $ra-border-radius
+    overflow: hidden
+
+    & > img
+      @include transition-all(1s)
+
+  &:hover &__picture
+    & > img
+      transform: scale(1.1)
+
+  &__tags
+    position: absolute
+    bottom: 0
+    display: flex
+    flex-wrap: wrap
+    margin: $ra-gutter-small
+    gap: $ra-gutter-small
+
+  &__tag
+    flex: none
+    background-color: rgba($ra-color-danger, .7)
+    color: $ra-color-text-inverse
+    line-height: 1.6em
+    border-radius: 500px
+    font-size: .9rem
+    padding: 0 $ra-gutter-small
+
+  &__date
+    margin-top: $ra-gutter
+    color: $ra-color-text-muted
+
+  &__title
+    font-style: $font-family-heading
+    font-weight: 100
+    font-size: 1.4rem
+    line-height: 1.3
+    margin-top: $ra-gutter
+
+  &:hover &__title
+    color: $ra-color-danger
+
+.c-page
+  &__imaged,
+  &__image-right-align
+    margin: $ra-gutter-medium
+    display: flex
+    align-items: center
+    gap: 3rem
+    @media (max-width: $device-tablet-landscape)
+      flex-direction: column
+
+  &__imaged-image,
+  &__image-right-image
+    width: calc(50% - 3rem)
+    @media (max-width: $device-tablet-landscape)
+      width: 100%
+
+  &__image-right-image
+    order: 2
+
+  &__image-file
+    margin: 0 auto
+
+  &__imaged-text
+    width: 50%
+    @media (max-width: $device-tablet-landscape)
+      width: 100%
+
+  &__headed-section
+    max-width: $device-tablet-portrait
+    margin: 0 auto

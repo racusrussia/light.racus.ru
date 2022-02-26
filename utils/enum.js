@@ -1,0 +1,28 @@
+
+export const fileType = {
+  'image':                                                                     'image',
+  'image/jpeg':                                                                'image',
+  'image/png':                                                                 'image',
+  'image/svg+xml':                                                             'image',
+  'image/webp':                                                                'image',
+  'image/gif':                                                                 'image',
+  'application/zip':                                                           'none',
+  'application/pdf':                                                           'pdf',
+  'audio/mp4':                                                                 'audio',
+  'audio/x-m4a':                                                               'audio',
+  'audio/mpeg':                                                                'audio',
+  'audio/aac':                                                                 'audio',
+  'audio/webm':                                                                'audio',
+  'video/mpeg':                                                                'video',
+  'video/mp4':                                                                 'video',
+  'video/quicktime':                                                           'video',
+  'video/webm':                                                                'video',
+  'application/vnd.ms-excel':                                                  'table',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':         'table',
+  'application/vnd.ms-powerpoint':                                             'none',
+  'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'none',
+  'application/msword':                                                        'text',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document':   'text',
+  'text/plain':                                                                'text',
+  '':                                                                          'none'
+}

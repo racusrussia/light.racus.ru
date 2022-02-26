@@ -1,0 +1,23 @@
+@import "../variables"
+@import "../mixins"
+
+.ra-page
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+  &__title
+    text-align: center
+    max-width: $device-tablet-landscape
+    margin: $ra-gutter-medium auto
+    display: flex
+    flex-direction: column
+
+    .ra-h--1
+      font-size: 3rem
+      @media (max-width: $device-desktop)
+        font-size: 2.3rem
+      @media (max-width: $device-tablet-landscape)
+        font-size: 1.9rem
+      @media (max-width: $device-phone)
+        font-size: 1.6rem

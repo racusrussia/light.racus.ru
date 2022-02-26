@@ -1,0 +1,47 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+.ra-content
+  &__table
+    border-collapse: collapse
+    max-width: $ra-content-max-width
+    margin: $ra-gutter-medium auto
+    line-height: 1.7
+    overflow-x: auto
+
+    @media (max-width: $device-phone)
+      margin: $ra-gutter auto
+
+    &--large
+      max-width: 100%
+
+  &__table-head-item
+    font-size: .8rem
+    color: $ra-color-text-muted
+    line-height: 1.1
+    text-transform: uppercase
+    hyphens: auto
+    text-align: center
+
+    & > *
+      padding: $ra-gutter-small
+
+  &__table-body-item
+    font-size: 1.2rem
+    line-height: 1.4
+
+    & > *
+      padding: $ra-gutter
+
+    &:nth-child(2n)
+      background-color: $ra-color-background-muted
+
+  &__table-head-item,
+  &__table-body-item
+
+    &:first-child
+      padding-left: 0
+
+    &:last-child
+      padding-right: 0

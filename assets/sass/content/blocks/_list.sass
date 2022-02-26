@@ -1,0 +1,34 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+ol,
+ul
+  &.ra-content-list
+    max-width: $ra-content-max-width
+    margin: $ra-gutter-medium auto
+    padding-left: $ra-gutter
+    font-size: 1.3rem
+    @media (max-width: $ra-content-max-width)
+      padding: 0 $ra-gutter
+    @media (max-width: $device-phone)
+      margin: $ra-gutter auto
+      font-size: 1.1rem
+
+    .ra-content-list__item
+      margin-bottom: $ra-gutter-small
+
+      &:last-child
+        margin-bottom: 0
+
+ul
+  &.ra-content-list
+    .ra-content-list__item
+      list-style: disc
+      margin-left: $ra-gutter-medium
+
+ol
+  &.ra-content-list
+    .ra-content-list__item
+      margin-left: $ra-gutter-medium
+      list-style: decimal

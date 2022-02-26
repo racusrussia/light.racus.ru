@@ -1,0 +1,28 @@
+@import "../variables"
+@import "../mixins"
+
+.ra-tabs
+  display: flex
+  justify-content: center
+  gap: $ra-gutter-large
+
+  &__drop
+    margin: 0 auto
+    position: relative
+
+  &__item
+    text-transform: uppercase
+    font-size: 1.2rem
+    font-family: $font-family-heading
+    font-weight: 900
+    line-height: 1.15
+    text-decoration: underline
+    text-align: center
+    //@include text-overflow
+
+    &:hover
+      text-decoration: none
+
+    &--active
+      color: $ra-color-danger
+      text-decoration: none

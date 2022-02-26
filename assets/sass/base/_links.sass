@@ -1,0 +1,13 @@
+@import "../variables"
+@import "../mixins"
+
+a
+  color: $ra-color-info
+  cursor: pointer
+  //text-decoration: underline
+
+  &:active,
+  &:hover
+    color: darken($ra-color-danger, 10%)
+    //text-decoration: underline
+    outline: none

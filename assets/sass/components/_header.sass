@@ -1,0 +1,134 @@
+@import "../variables"
+@import "../mixins"
+
+.ra-header
+  &__social
+    display: flex
+    gap: 20px
+    align-items: center
+
+  &__social-item
+    width: 21px
+    height: 21px
+    display: inline-block
+    cursor: pointer
+    background-position: top center
+    background-repeat: no-repeat
+    transition: background-position .3s ease-in-out
+
+    &:hover
+      background-position: bottom center
+
+    &--facebook
+      width: 8px
+      height: 18px
+      background-image: url(/images/sprite-fb.png)
+
+    &--instagram
+      background-image: url(/images/sprite-inst.png)
+
+    &--youtube
+      background-image: url(/images/sprite-yo.png)
+
+.ra-header-top
+  padding: $ra-gutter-medium
+  position: relative
+  z-index: 2
+  @include transition-all(0.3s)
+
+  &--sticky
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 100
+    padding: $ra-gutter-small $ra-gutter-medium
+    background: no-repeat url(/images/header-bg.jpeg)
+    background-size: cover
+
+  &--small
+    padding: $ra-gutter-small $ra-gutter-medium
+    background: no-repeat url(/images/header-bg.jpeg)
+    background-size: cover
+    @media (max-width: $device-phone)
+      padding: $ra-gutter-small
+
+  &__wrapper
+    height: 110px
+
+    &--small
+      display: flex
+      align-items: center
+
+  &__item
+    margin-right: $ra-gutter
+    @media (max-width: $device-phone)
+      margin-right: $ra-gutter-small
+
+  &__logo
+    width: 130px
+    height: 108px
+    margin: 0 auto
+    display: block
+
+    &--small
+      width: 80px
+      height: 67px
+      display: block
+
+  &__left,
+  &__right
+    display: flex
+    align-items: center
+    width: calc(50% - 65px - 2rem)
+    height: 100%
+
+  &__left
+    float: left
+
+  [dir=rtl] &__left
+    float: right
+
+  &__right
+    float: right
+
+  [dir=rtl] &__right
+    float: left
+
+.ra-header-top-info
+  position: relative
+  z-index: 2
+  @include transition-all(0.3s)
+  padding: $ra-gutter-small $ra-gutter-medium
+  background: no-repeat url(/images/header-bg.jpeg)
+  background-size: cover
+  @media (max-width: $device-phone)
+    padding: $ra-gutter-small
+
+  &--sticky
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 100
+    padding: $ra-gutter-small $ra-gutter-medium
+    background: no-repeat url(/images/header-bg.jpeg)
+    background-size: cover
+
+  &__wrapper
+    height: 110px
+
+    &--small
+      display: flex
+      align-items: center
+
+  &__item
+    margin-left: $ra-gutter
+    @media (max-width: $device-phone)
+      margin-left: $ra-gutter-small
+
+  &__logo
+    margin: 0 auto
+    width: 80px
+    height: 67px
+    display: block

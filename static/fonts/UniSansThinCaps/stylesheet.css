@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Uni Sans Thin Caps';
+    src: url('UniSansThinCaps.eot');
+    src: url('UniSansThinCaps.eot?#iefix') format('embedded-opentype'),
+        url('UniSansThinCaps.woff2') format('woff2'),
+        url('UniSansThinCaps.woff') format('woff'),
+        url('UniSansThinCaps.ttf') format('truetype'),
+        url('UniSansThinCaps.svg#UniSansThinCaps') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

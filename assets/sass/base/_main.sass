@@ -1,0 +1,32 @@
+@import "../variables"
+@import "../mixins"
+
+html, body
+  //@include vh-100
+  width: 100%
+  //min-height: 100%
+  font-weight: $font-weight
+  font-family: $font-family
+  font-size: $font-size
+  line-height: $line-height
+  color: $ra-color-text
+  min-height: $ra-min-height
+  min-width: $ra-min-width
+  background-color: $ra-color-background
+  @media (max-width: $device-tablet-small)
+    font-size: $font-size-mobile
+
+body
+  scroll-behavior: smooth
+
+.ra-to-top
+  position: fixed
+  bottom: 0
+  left: 0
+  margin: $ra-gutter
+  transform: rotate(-90deg)
+  z-index: 10
+  transform-origin: center center
+
+.ra-scroll-to
+  scroll-margin: 6rem

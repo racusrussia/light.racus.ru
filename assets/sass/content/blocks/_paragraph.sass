@@ -1,0 +1,17 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+.ra-content
+  &__paragraph
+    max-width: $ra-content-max-width
+    margin: 0 auto $ra-gutter-medium auto
+    line-height: 1.8
+    font-size: 1.3rem
+
+    @media (max-width: $ra-content-max-width)
+      padding: 0 $ra-gutter
+
+    @media (max-width: $device-phone)
+      margin: $ra-gutter auto
+      font-size: 1.1rem

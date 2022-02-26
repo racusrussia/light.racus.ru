@@ -1,0 +1,235 @@
+@import "../variables"
+@import "../mixins"
+
+.ra-footer
+  display: flex
+  color: $ra-color-text-inverse
+
+  @media (max-width: $device-desktop)
+    flex-direction: column
+
+  &__link
+    color: $ra-color-text-inverse
+    text-decoration: none
+
+    &:hover
+      color: $ra-color-danger
+
+  &__map
+    width: 30%
+    flex: none
+    position: relative
+    @media (max-width: $device-desktop)
+      width: 100%
+
+  &__bgr
+    @include cover
+    overflow: hidden
+    //position: relative
+    background-color: $ra-color-background-muted
+    @media (max-width: $device-desktop)
+      display: none
+
+  &__image
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: 100% !important
+    min-height: 100% !important
+  //max-height: 100%
+
+  &__body
+    font-size: 1rem
+    flex: 1
+    min-width: 300px
+    background: 50% 50% no-repeat url(/images/footer_bg.jpeg)
+    background-size: cover
+    padding: $ra-gutter-large
+    display: flex
+    gap: $ra-gutter-medium
+    @media (max-width: $device-tablet-landscape)
+      flex-direction: column
+    @media (max-width: $device-tablet-portrait)
+      padding: $ra-gutter-medium
+    @media (max-width: $device-tablet-small)
+      padding: $ra-gutter
+
+  &__contacts
+    width: 40%
+    flex: none
+    display: grid
+    grid-gap: $ra-gutter-large
+    grid-template-areas: "social email" "phone1 phone2" "address address" "offices offices"
+    @media (max-width: $device-desktop-large)
+      width: 50%
+      grid-gap: $ra-gutter-medium
+    @media (max-width: $device-tablet-landscape)
+      width: 100%
+      grid-template-areas: "social email address" "phone1 phone2 offices"
+    @media (max-width: $device-tablet-portrait)
+      grid-template-areas: "social email" "phone1 phone2" "address address" "offices offices"
+    @media (max-width: $device-tablet-small)
+      grid-gap: $ra-gutter
+
+  &__social
+    grid-area: social
+
+  &__email
+    grid-area: email
+    @media (max-width: $device-tablet-landscape)
+      justify-self: center
+    @media (max-width: $device-tablet-portrait)
+      justify-self: end
+
+  &__phone
+
+    &--0
+      grid-area: phone1
+
+    &--1
+      grid-area: phone2
+      @media (max-width: $device-tablet-landscape)
+        justify-self: center
+      @media (max-width: $device-tablet-portrait)
+        justify-self: end
+
+  &__address
+    grid-area: address
+    @media (max-width: $device-tablet-landscape)
+      justify-self: center
+
+  &__all-offices
+    grid-area: offices
+    @media (max-width: $device-tablet-landscape)
+      justify-self: end
+    @media (max-width: $device-tablet-portrait)
+      justify-self: center
+
+  //&__phone,
+  //&__email,
+  //&__social,
+  //&__address,
+  //&__all-offices
+  //  order: 10
+  //  width: calc(50% - $ra-gutter)
+  //  @media (max-width: $device-desktop-large)
+  //    width: 100%
+  //  @media (max-width: $device-desktop)
+  //    width: calc(50% - $ra-gutter)
+  //  @media (max-width: $device-tablet-landscape)
+  //    width: calc(33.3333% - $ra-gutter)
+
+  &__phone-number
+    display: block
+
+  &__phone-description
+    display: block
+    font-size: 1rem
+
+  &__phone
+    font-size: 1.4rem
+    text-decoration: none
+
+  &__social
+    display: flex
+    gap: 20px
+
+  &__social-item
+    width: 20px
+    height: 20px
+    display: inline-block
+    cursor: pointer
+    background-position: top center
+    transition: background-position .3s ease-in-out
+
+    &:hover
+      background-position: bottom center
+
+    &--facebook
+      background-image: url(/images/sprite-fb-f.png)
+
+    &--instagram
+      background-image: url(/images/sprite-inst-f.png)
+
+    &--twitter
+      background-image: url(/images/sprite-tw-f.png)
+
+  &__sub
+    flex: 1
+    min-width: 300px
+    @media (max-width: $device-tablet-landscape)
+      border-top: 1px solid rgba(255, 255, 255, .2)
+      padding-top: $ra-gutter-medium
+  //margi: $ra-gutter-large
+
+  &__sub-header
+    font-size: 2.8rem
+    text-transform: uppercase
+    font-weight: 100
+    line-height: 1.1
+    @media (max-width: $device-tablet-landscape)
+      text-align: center
+      font-size: 2.4rem
+    @media (max-width: $device-tablet-portrait)
+      font-size: 2.2rem
+    @media (max-width: $device-tablet-small)
+      font-size: 2rem
+    @media (max-width: $device-phone)
+      font-size: 1.5rem
+
+  &__sub-form
+    margin-top: $ra-gutter-medium
+
+  &__sub-field
+    display: flex
+
+  &__sub-input
+    background-color: $ra-color-text-inverse
+    color: $ra-color-text-muted
+    font-size: 1.1rem
+    margin-right: -$ra-gutter-medium
+    border-radius: 500px 0 0 500px
+    padding: 0 $ra-gutter-medium * 1.5 0 $ra-gutter-medium
+
+    &:focus,
+    &:active
+      color: $ra-color-text
+      background-color: $ra-color-text-inverse
+
+  [dir=rtl] &__sub-input
+    margin-right: 0
+    margin-left: -$ra-gutter-medium
+    border-radius: 0 500px 500px 0
+
+  &__sub-terms
+    display: flex
+    gap: $ra-gutter-small
+    margin-top: $ra-gutter
+    @media (max-width: $device-tablet-landscape)
+      justify-content: center
+
+  &__divider
+    margin: $ra-gutter-large 0
+    border-color: rgba(255, 255, 255, .2)
+    @media (max-width: $device-tablet-landscape)
+      margin: $ra-gutter-medium 0
+    @media (max-width: $device-tablet-portrait)
+      margin: $ra-gutter 0
+
+  &__links
+    display: flex
+    gap: $ra-gutter
+    @media (max-width: $device-tablet-landscape)
+      justify-content: center
+
+    a
+      text-decoration: underline
+
+      &:hover
+        text-decoration: none
+
+  &__copyright
+    margin-top: $ra-gutter-medium
+    @media (max-width: $device-tablet-landscape)
+      text-align: center

@@ -1,0 +1,33 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+.ra-content
+  &__heading
+    //max-width: $ra-content-max-width
+    margin: $ra-gutter-large auto $ra-gutter-medium auto
+    @media (max-width: $ra-content-max-width)
+      padding: 0 $ra-gutter
+    @media (max-width: $device-tablet-small)
+      margin-top: $ra-gutter-medium * 1.2
+    @media (max-width: $device-phone)
+      margin-top: $ra-gutter-medium
+      margin-bottom: $ra-gutter
+
+h1.ra-content__heading,
+h2.ra-content__heading
+  text-align: center
+  text-transform: uppercase
+  max-width: $ra-content-max-width
+
+h3.ra-content__heading,
+h4.ra-content__heading,
+h5.ra-content__heading,
+h6.ra-content__heading
+  max-width: $ra-content-max-width
+  margin: $ra-gutter-medium auto $ra-gutter-small auto
+  @media (max-width: $device-tablet-small)
+    margin-top: $ra-gutter-medium * 1.2
+  @media (max-width: $device-phone)
+    margin-top: $ra-gutter-medium
+    margin-bottom: $ra-gutter

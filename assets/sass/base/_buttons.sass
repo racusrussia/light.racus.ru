@@ -1,0 +1,146 @@
+@import "../variables"
+@import "../mixins"
+
+$button-size: 50px
+$button-size-small: 36px
+
+.ra-button
+  display: inline-flex
+  box-sizing: border-box
+  text-decoration: none
+  background-color: transparent
+  padding: 0 1rem
+  line-height: $button-size
+  //min-width: $button-size
+  border-radius: .5rem
+  text-align: center
+  position: relative
+  cursor: pointer
+  outline: none
+  border: 1px solid transparent
+  letter-spacing: 1px
+  font-weight: 900
+  @include text-overflow
+  max-width: 100%
+  @media (max-width: $device-tablet-small)
+    padding: 0 .8rem
+    line-height: $button-size
+
+  &:hover
+    text-decoration: none
+
+  &--center
+    text-transform: uppercase
+
+  &--uppercase
+    justify-content: center
+
+  &--small
+    line-height: 36px
+    min-width: 36px
+    padding: 0 .5rem
+
+  &__icon
+    overflow: hidden
+    flex: none
+    align-items: center
+    justify-content: center
+    width: $button-size
+    max-width: $button-size
+    height: $button-size
+    padding: 0
+
+    &--small
+      height: $button-size-small
+      width: $button-size-small
+      max-width: $button-size-small
+
+  &:disabled
+    border-color: $ra-border
+    background-color: transparent
+    color: $ra-color-text-muted
+    cursor: default
+
+  &--pill
+    border-radius: 500px
+
+  &--not-pill
+    border-radius: 0
+
+  &--fill
+    width: 100%
+
+  &--danger
+    color: $ra-color-text-inverse
+    background-color: $ra-color-danger
+
+    &:hover
+      color: $ra-color-text-inverse
+      background-color: darken($ra-color-danger, 5%)
+
+    &:disabled
+      color: darken($ra-color-text-inverse, 20%)
+      background-color: darken($ra-color-danger, 15%)
+
+  &--danger-border
+    color: $ra-color-danger
+    background-color: transparent
+    border-color: $ra-color-danger
+
+    &:hover
+      color: $ra-color-text-inverse
+      background-color: darken($ra-color-danger, 5%)
+
+  &--border
+    color: $ra-color-text-inverse
+    background-color: transparent
+    border-color: $ra-color-text-inverse
+
+    &:hover
+      color: $ra-color-text-inverse
+      background-color: darken($ra-color-danger, 5%)
+      border-color: darken($ra-color-danger, 5%)
+
+  &__arrow
+    display: flex
+    align-items: center
+
+    &:after
+      margin-left: $ra-gutter-small
+      display: inline-block
+      width: 14px
+      height: 14px
+      content: ""
+      background: 50% 50% no-repeat url(/images/arrow-down.png)
+      background-size: 100% auto
+
+    [dir=rtl] &:after
+      margin-left: 0
+      margin-right: $ra-gutter-small
+
+    &--left
+      flex-direction: row-reverse
+
+      &:after
+        margin-right: $ra-gutter-small
+        margin-left: 0
+        transform: rotate(90deg)
+
+      [dir=rtl] &:after
+        margin-right: 0
+        transform: rotate(-90deg)
+        margin-left: $ra-gutter-small
+
+    &--right
+      &:after
+        order: 0
+        transform: rotate(-90deg)
+
+      [dir=rtl] &:after
+        margin-right: $ra-gutter-small
+        transform: rotate(90deg)
+        margin-left: 0
+
+    &--active
+      &:after
+        background-image: url(/images/arrow-up.png)

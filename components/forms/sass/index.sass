@@ -1,0 +1,216 @@
+@import "assets/sass/variables"
+@import "assets/sass/mixins"
+
+.ra-form
+  overflow: hidden
+  z-index: $ra-z-index + 1
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  height: 100vh
+  position: fixed
+  display: flex
+  align-items: center
+  justify-content: center
+
+  &__outer
+    z-index: $ra-z-index + 2
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    cursor: not-allowed
+    @include transition-all(1s)
+
+    &--mounted
+      backdrop-filter: blur(3px)
+      background-color: rgba(10, 9, 9, .6)
+
+.ra-form-complete,
+.ra-form-content
+  background-color: $ra-color-text-inverse
+  box-shadow: $shadow-large
+  border-radius: $ra-border-radius * 4
+  display: flex
+  flex-direction: column
+  z-index: $ra-z-index + 3
+  position: relative
+  @media (max-width: $device-tablet-portrait)
+    border-radius: $ra-border-radius * 8
+
+.ra-form-content
+  width: 545px
+  max-width: 95%
+  max-height: 90%
+  margin: auto $ra-gutter-small
+  overflow: hidden
+  display: flex
+  flex-direction: column
+  @media (max-width: $device-tablet-portrait)
+    height: auto
+    max-height: 95%
+
+.ra-form-content-header
+  padding: $ra-gutter $ra-gutter 0 $ra-gutter
+  display: flex
+  align-items: center
+  justify-content: flex-end
+
+  &__close
+    cursor: pointer
+    width: 20px
+    height: 20px
+    color: $ra-color-danger
+
+    &:hover
+      color: darken($ra-color-danger, 5%)
+
+.ra-form-content-body
+  flex: 1
+  min-height: 100px
+  overflow: auto
+  padding: 0 $ra-gutter-large $ra-gutter $ra-gutter-large
+  @media (max-width: $device-tablet-portrait)
+    padding: 0 $ra-gutter $ra-gutter-small $ra-gutter
+
+  &__title
+    font-size: 2rem
+    font-weight: bold
+    text-align: center
+    line-height: 1.2
+    text-transform: uppercase
+    //margin-bottom: $ra-gutter
+
+    @media (max-width: $device-tablet-portrait)
+      margin-bottom: $ra-gutter
+      font-size: 1.4rem
+
+.ra-form-content-footer
+  background-color: $ra-color-background-muted
+  flex: none
+  padding: $ra-gutter $ra-gutter-large
+  @media (max-width: $device-tablet-portrait)
+    padding: $ra-gutter-small $ra-gutter
+
+  &__meta
+    margin: $ra-gutter 0
+    color: var(--color-text-muted)
+    hyphens: auto
+    font-size: .9rem
+    font-weight: normal
+    line-height: 1.3
+    display: flex
+    flex-direction: column
+
+    & > *
+      margin-bottom: $ra-gutter
+
+    @media (max-width: $device-tablet-portrait)
+      margin-top: $ra-gutter-small
+      font-size: .8rem
+
+.ra-form-content-fields
+  padding-top: $ra-gutter-medium
+  @media (max-width: $device-tablet-portrait)
+    padding-top: $ra-gutter
+
+//& > *
+//  &:not(:last-child)
+//    margin-bottom: $ra-gutter * 1.5
+//    @media (max-width: $device-phone)
+//      margin-bottom: $ra-gutter
+
+.ra-form-content-fields__row
+  label
+    position: relative
+    font-weight: normal
+    display: block
+
+    span
+      color: var(--color-text-muted)
+      transition: .3s ease-in-out
+      padding-left: $ra-gutter
+      position: absolute
+      top: 50%
+      //@include e
+      display: block
+      max-width: 100%
+      transform: translateY(-50%)
+
+    input,
+    textarea
+      &.valid
+        border-color: $ra-color-success
+        color: $ra-color-success
+
+      &:focus,
+      &.not-empty
+        & + span
+          top: -13px
+
+.ra-form-content-fields-list
+  display: flex
+  flex-wrap: wrap
+
+  &__title
+    width: 100%
+    font-size: 1.1rem
+    font-weight: bold
+    line-height: 1.2
+    margin-bottom: $ra-gutter
+
+  &__description
+    width: 100%
+    margin-bottom: $ra-gutter
+    font-size: .9rem
+    line-height: 1.3rem
+
+  & > label
+    width: 50%
+    font-weight: normal
+
+.ra-form-complete
+  max-width: 850px
+  align-items: center
+  justify-content: center
+  text-align: center
+  padding: $ra-gutter-xlarge
+  width: 90%
+  @media (max-width: $device-tablet-portrait)
+    padding: $ra-gutter-medium
+
+  &__description
+    max-width: 500px
+    font-size: 1.4rem
+
+  &__title
+    font-weight: bold
+    font-size: 3rem
+    line-height: 1.2
+
+  &__step
+    display: flex
+    align-items: flex-start
+    align-self: stretch
+
+  &__step-number
+    font-size: 2.5rem
+    line-height: 1.1
+    color: $ra-color-danger
+    margin-right: $ra-gutter
+
+  [dir=rtl] &__step-number
+    margin-right: 0
+    margin-left: $ra-gutter
+
+  &__step-text
+    text-align: left
+
+  [dir=rtl] &__step-text
+    text-align: right
+
+  & > *
+    &:not(:last-child)
+      margin-bottom: $ra-gutter-medium

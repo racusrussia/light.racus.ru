@@ -1,0 +1,43 @@
+@import "../variables"
+@import "../mixins"
+
+ul.ra-drop,
+.ra-drop
+  position: absolute
+  top: 100%
+  left: 0
+  width: auto
+  min-width: 200px
+  margin-top: $ra-gutter-small
+  background-color: $ra-color-danger
+  border-radius: 1.5rem
+  padding: 1rem 0
+  overflow: hidden
+  z-index: 20
+
+  &--base
+    background-color: $ra-color-base
+
+  &__item
+    display: block
+    text-align: left
+
+  [dir=rtl] &__item
+    text-align: right
+
+  &__link
+    display: block
+    padding: .4rem 1rem
+    line-height: 1.2rem
+    cursor: pointer
+    text-decoration: none
+    color: $ra-color-text-inverse
+
+    &:hover,
+    &--active
+      color: $ra-color-text-inverse
+      background-color: darken($ra-color-danger, 5%)
+
+[dir=rtl] .ra-drop
+  left: auto
+  right: 0

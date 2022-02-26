@@ -1,0 +1,13 @@
+@import "../../variables"
+@import "../../mixins"
+@import "../var"
+
+.ra-content
+  &__delimiter
+    max-width: $ra-content-max-width
+    margin: $ra-gutter-medium auto
+    border-color: $ra-color-danger
+    border-width: 1px 0 0 0
+    border-style: solid
+    @media (max-width: $device-phone)
+      margin: $ra-gutter auto

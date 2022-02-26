@@ -1,0 +1,119 @@
+@import "../variables"
+@import "../mixins"
+
+label
+  font-size: .9rem
+  font-weight: bold
+
+input,
+textarea,
+.content-editable
+  color: var(--cui-color-text)
+
+  &:focus
+    color: var(--cui-color-info)
+
+  &::selection
+    //background-color: var(--cui-color-info)
+    //color: var(--cui-color-invers)
+
+input,
+textarea,
+.content-editable
+  &:-webkit-autofill
+    transition: color 600000s 0s
+    -webkit-box-shadow: 0 0 0px 1000px var(--cui-color-backgroung) inset
+    //color: var(--cui-color-text) !important
+    &:focus
+      -webkit-box-shadow: 0 0 0px 1000px var(--cui-color-backgroung-muted) inset
+
+  &::-moz-placeholder,
+  &::-ms-input-placeholder
+    opacity: 1
+    color: var(--cui-color-text-muted) !important
+    font-weight: normal
+
+  &::placeholder
+    color: var(--cui-color-text-muted)
+    font-weight: normal
+
+//input,
+.ra-input
+  height: $ra-control-height
+  padding: 0 $ra-gutter
+  border: 0 solid rgba($ra-border, .4)
+  border-width: 0 0 2px 0
+
+  &:disabled
+    color: $ra-color-text-muted
+    background-color: rgba($ra-color-background-muted, .5)
+
+  &.pill
+    border-radius: 500px
+
+  &:focus,
+  &:active
+    background-color: transparent
+    //color: var(--cui-color-info)
+    border-color: $ra-border
+
+  &__row
+    padding: $font-size * 1.2 0
+    position: relative
+
+  &__label
+    @include transition-all(.3s)
+    z-index: -1
+    padding: 0 $ra-gutter
+    position: absolute
+    top: $font-size * $line-height
+    font-size: 1rem
+    line-height: $font-size * 1.6
+
+    &--fill
+      top: 0
+
+  &--danger
+    border-color: rgba($ra-color-danger, .6)
+
+    &:focus,
+    &:active
+      border-color: $ra-color-danger
+
+  &--warning
+    border-color: rgba($ra-color-warning, .6)
+
+    &:focus,
+    &:active
+      border-color: $ra-color-warning
+
+  &--success
+    border-color: rgba($ra-color-success, .6)
+
+    &:focus,
+    &:active
+      border-color: $ra-color-success
+
+  &__warning
+    position: absolute
+    bottom: 2px
+    right: 0
+    height: $font-size * 1.2
+    font-size: .8rem
+    line-height: $font-size * 1.2
+    color: $ra-color-text-inverse
+    display: inline-block
+    background-color: $ra-color-danger
+    padding: 0 $ra-gutter-small
+
+    &:before
+      position: absolute
+      right: 0
+      bottom: 100%
+      display: block
+      content: ""
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 0 .5rem .5rem
+      border-color: transparent transparent $ra-color-danger transparent
