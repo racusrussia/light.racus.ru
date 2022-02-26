@@ -6,7 +6,7 @@ import { Router }                                           from './utils/config
 
 const HOST = ( process.env.NODE_ENV === 'development' )
   ? 'http://localhost:1337'
-  : ( process.env.HOST_HTTP ) ? process.env.HOST_HTTP : 'https://api.racus.ru'
+  : ( process.env.HOST_HTTP ) ? process.env.HOST_HTTP : 'https://api.edurussia.ru'
 
 export default {
 
@@ -25,7 +25,8 @@ export default {
   redirect:        Rules,
   nuxtPrecompress: nuxtPreCompress,
 
-  loading: { color: '#f3b224', failedColor: '#bd0033', height: '4px' },
+  loading: false,
+  //loading: { color: '#f3b224', failedColor: '#bd0033', height: '4px' },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [

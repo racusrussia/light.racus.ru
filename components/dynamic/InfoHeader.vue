@@ -73,7 +73,7 @@ export default {
 @import "assets/sass/variables"
 
 .ra-header-info
-  min-height: 400px
+  //min-height: 400px
   background: $ra-color-base no-repeat center center
   background-size: cover
 
@@ -81,8 +81,7 @@ export default {
     display: flex
     align-items: center
     justify-content: center
-    min-height: 400px
-
+    min-height: 300px
     text-align: center
     background-image: linear-gradient(to left top, rgba(0, 42, 82, 0.4), rgba(189, 0, 51, 0.4))
 
