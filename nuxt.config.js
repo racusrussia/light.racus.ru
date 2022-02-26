@@ -8,6 +8,7 @@ const HOST = ( process.env.NODE_ENV === 'development' )
   ? 'http://localhost:1337'
   : ( process.env.HOST_HTTP ) ? process.env.HOST_HTTP : 'https://api.edurussia.ru'
 
+console.log('HOST',HOST)
 export default {
 
   target:     'static', // static

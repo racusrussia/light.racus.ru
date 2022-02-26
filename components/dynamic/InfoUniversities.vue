@@ -60,11 +60,12 @@
         <div class="universities-list"
              v-if="!loading && selectedUniversities">
 
-          <nuxt-link :to="localePath(`/university/${getSlug(item)}`)"
-                     class="universities-list__item"
-                     :key="item.id"
-                     :title="item.title"
-                     v-for="item in selectedUniversities">
+          <a :href="`https://next.edurussia.ru/university/${getSlug(item)}`"
+             target="_blank"
+             class="universities-list__item"
+             :key="item.id"
+             :title="item.title"
+             v-for="item in selectedUniversities">
 
             <div class="universities-list__item-logo"
                  :style="{backgroundImage: `url(${item.logo.url})`}"/>
@@ -72,7 +73,7 @@
             <div class="universities-list__item-name"
                  v-text="item.title"></div>
 
-          </nuxt-link>
+          </a>
 
         </div>
       </transition>
@@ -113,8 +114,8 @@ export default {
   },
 
   async mounted () {
-    if (process.browser) {
-      await this.load(true)
+    if ( process.browser ) {
+      await this.load( true )
     }
   },
 
@@ -126,9 +127,9 @@ export default {
 
   computed: {
 
-    all () {return this.$t('all_universities')},
+    all () {return this.$t( 'all_universities' )},
     device () {return this.$store.getters[ 'modules/layout/device' ]},
-    showDrop () {return this.dropDevices.includes(this.device)},
+    showDrop () {return this.dropDevices.includes( this.device )},
     hideBorder () {return this.data?.hideBorder},
     showFilter () {return !this.data?.hideFilter},
     title () {return this.data?.title},
@@ -136,10 +137,10 @@ export default {
     code () {return this.$i18n.localeProperties.code},
 
     selectedUniversities () {
-      if (!this.universities) return null
-      if (!this.universitiesAll) return null
+      if ( !this.universities ) return null
+      if ( !this.universitiesAll ) return null
       return ( this.active )
-        ? this.universities.find(i => i.id === this.active.id)?.universities
+        ? this.universities.find( i => i.id === this.active.id )?.universities
         : this.universitiesAll
     }
 
@@ -149,10 +150,10 @@ export default {
 
     getQuery () {
       const { type } = this.$route.query
-      if (!this.universities) return
-      if (type) {
-        const active = this.universities.find(i => i.name === type)
-        if (active) {
+      if ( !this.universities ) return
+      if ( type ) {
+        const active = this.universities.find( i => i.name === type )
+        if ( active ) {
           this.active = active
         }
       }
@@ -160,30 +161,30 @@ export default {
     },
 
     getSlug ( item ) {
-      if (!item) return ''
-      if (this.code === 'en') {
+      if ( !item ) return ''
+      if ( this.code === 'en' ) {
         return item?.slug
       }
       else {
-        const  page  = ( item.localizations ) ? item.localizations.find(i => i.locale === 'en') : ''
+        const page = ( item.localizations ) ? item.localizations.find( i => i.locale === 'en' ) : ''
         return page?.slug
       }
     },
 
     async load ( query = false ) {
       this.loading                              = true
-      const { universitiesTypes, universities } = await graphQl.data(UniversitiesTypes, { locale: this.code })
-      if (!universitiesTypes && !!universitiesTypes.length) return
-      this.universities    = universitiesTypes
-        //.filter(i =>
-        //+i.id !== 25 ||
-        //+i.id !== 26 ||
-        //+i.id !== 27 ||
-        //+i.id !== 28 ||
-        //+i.id !== 29 ||
-        //+i.id !== 30)
+      const { universitiesTypes, universities } = await graphQl.data( UniversitiesTypes, { locale: this.code } )
+      if ( !universitiesTypes && !!universitiesTypes.length ) return
+      this.universities = universitiesTypes
+      //.filter(i =>
+      //+i.id !== 25 ||
+      //+i.id !== 26 ||
+      //+i.id !== 27 ||
+      //+i.id !== 28 ||
+      //+i.id !== 29 ||
+      //+i.id !== 30)
       this.universitiesAll = universities
-      if (query) {
+      if ( query ) {
         this.getQuery()
       }
     }
