@@ -8,10 +8,10 @@ const HOST = ( process.env.NODE_ENV === 'development' )
   ? 'http://localhost:1337'
   : ( process.env.HOST_HTTP ) ? process.env.HOST_HTTP : 'https://api.edurussia.ru'
 
-console.log('HOST',HOST)
+console.log( 'HOST', HOST )
 export default {
 
-  target:     'static', // static
+  target:     'static', // static server
   debug:      false,
   cache:      true,
   ssr:        false,
@@ -35,13 +35,13 @@ export default {
   ],
 
   env: {
-    HOST_HTTP:               HOST,
+    //HOST_HTTP:               HOST,
+    HOST_HTTP:               process.env.HOST_HTTP || 'https://api.edurussia.ru',
     NUXT_TELEMETRY_DISABLED: process.env.NUXT_TELEMETRY_DISABLED,
     NODE_ENV:                process.env.NODE_ENV || 'production',
     HOST:                    process.env.HOST || '0.0.0.0',
     NODE_PORT:               process.env.NODE_PORT || 3000,
-    APP_HOST:                process.env.APP_HOST,
-    SITE_URL:                process.env.SITE_URL,
+    SITE_URL:                process.env.SITE_URL || 'https://light.edurussia.ru',
     MAPBOX_APIKEY:           process.env.MAPBOX_APIKEY,
     MAPBOX_URL:              process.env.MAPBOX_URL,
     MEILISEARCH_URL:         process.env.MEILISEARCH_URL
@@ -53,21 +53,18 @@ export default {
     { src: '~/utils/plugins/vue-touch', ssr: false },
     { src: '~/utils/plugins/autofocus', ssr: false },
     { src: '~/utils/plugins/click-outside', ssr: false },
-    //{ src: '~/utils/plugins/vue-sticky-directive', ssr: false },
     { src: '~/utils/plugins/i18n' },
-    //{ src: '~/utils/plugins/ip' },
     { src: '~/utils/plugins/vue-the-mask', ssr: false }
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    //'@nuxtjs/eslint-module',  // https://go.nuxtjs.dev/eslint
     '@nuxtjs/svg',            //https://github.com/nuxt-community/svg-module#file-loader
     '@nuxtjs/device'          // https://github.com/nuxt-community/device-module
   ],
 
   serverMiddleware: [
-    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
+    redirectSSL.create( { enabled: process.env.NODE_ENV === 'production' } )
     //{ path: '/api', handler: '~/middleware/index' }
   ],
 
@@ -173,7 +170,7 @@ export default {
     extend ( config, { isServer } ) {
 
       // Fixes npm packages that depend on 'fs' module
-      if (!isServer) {
+      if ( !isServer ) {
         config.node = {
           fs:  'empty', // when i put this line i get the 'net' error
           net: 'empty' // then i put the 'net' line
