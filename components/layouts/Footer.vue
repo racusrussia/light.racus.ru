@@ -1,21 +1,21 @@
 <template>
   <footer class="ra-footer">
 
-    <div class="ra-footer__map"
-         v-if="showMap">
+    <!--<div class="ra-footer__map"-->
+    <!--     v-if="showMap">-->
 
-      <ContactsMap v-if="showFooterMap && footerImage"/>
+    <!--  <ContactsMap v-if="showFooterMap && footerImage"/>-->
 
-      <div class="ra-footer__bgr"
-           v-else>
+    <!--  <div class="ra-footer__bgr"-->
+    <!--       v-else>-->
 
-        <Picture class-name="ra-footer__image"
-                 format-large="tablet-portrait"
-                 format-medium="tablet-portrait"
-                 format-default="tablet-portrait"
-                 :image="footerImage"/>
-      </div>
-    </div>
+    <!--    <Picture class-name="ra-footer__image"-->
+    <!--             format-large="tablet-portrait"-->
+    <!--             format-medium="tablet-portrait"-->
+    <!--             format-default="tablet-portrait"-->
+    <!--             :image="footerImage"/>-->
+    <!--  </div>-->
+    <!--</div>-->
 
     <div class="ra-footer__body">
 
@@ -62,11 +62,11 @@
         <div class="ra-footer__address"
              v-text="address"></div>
 
-        <div class="ra-footer__all-offices">
-          <nuxt-link :to="localePath('/about-us/representatives')"
-                     class="ra-button--border ra-button ra-button--pill"
-                     v-text="$t('our_offices_in_other_countries')"></nuxt-link>
-        </div>
+        <!--<div class="ra-footer__all-offices">-->
+        <!--  <nuxt-link :to="localePath('/about-us/representatives')"-->
+        <!--             class="ra-button&#45;&#45;border ra-button ra-button&#45;&#45;pill"-->
+        <!--             v-text="$t('our_offices_in_other_countries')"></nuxt-link>-->
+        <!--</div>-->
 
       </div>
 
@@ -102,16 +102,16 @@
 
         <div class="ra-footer__other">
 
-          <div class="ra-footer__links">
+          <!--<div class="ra-footer__links">-->
 
-            <nuxt-link :to="localePath('/privacy-policy')"
-                       class="ra-footer__link"
-                       v-text="$t('privacy_policy')"></nuxt-link>
-            <nuxt-link :to="localePath('/sitemap')"
-                       class="ra-footer__link"
-                       v-text="$t('sitemap')"></nuxt-link>
+            <!--<nuxt-link :to="localePath('/privacy-policy')"-->
+            <!--           class="ra-footer__link"-->
+            <!--           v-text="$t('privacy_policy')"></nuxt-link>-->
+            <!--<nuxt-link :to="localePath('/sitemap')"-->
+            <!--           class="ra-footer__link"-->
+            <!--           v-text="$t('sitemap')"></nuxt-link>-->
 
-          </div>
+          <!--</div>-->
 
           <div class="ra-footer__copyright">© {{ copyright }}</div>
         </div>
