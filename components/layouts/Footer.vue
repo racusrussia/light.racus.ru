@@ -104,12 +104,12 @@
 
           <!--<div class="ra-footer__links">-->
 
-            <!--<nuxt-link :to="localePath('/privacy-policy')"-->
-            <!--           class="ra-footer__link"-->
-            <!--           v-text="$t('privacy_policy')"></nuxt-link>-->
-            <!--<nuxt-link :to="localePath('/sitemap')"-->
-            <!--           class="ra-footer__link"-->
-            <!--           v-text="$t('sitemap')"></nuxt-link>-->
+          <!--<nuxt-link :to="localePath('/privacy-policy')"-->
+          <!--           class="ra-footer__link"-->
+          <!--           v-text="$t('privacy_policy')"></nuxt-link>-->
+          <!--<nuxt-link :to="localePath('/sitemap')"-->
+          <!--           class="ra-footer__link"-->
+          <!--           v-text="$t('sitemap')"></nuxt-link>-->
 
           <!--</div>-->
 
@@ -149,7 +149,7 @@ export default {
     },
 
     emailValid () {
-      return validationEmail(this.subscription.email)
+      return validationEmail( this.subscription.email )
     },
 
     formValid () {
@@ -192,11 +192,11 @@ export default {
   methods: {
 
     clearPhone ( phone ) {
-      return phone.replace(/[^0-9\\+]/g, '')
+      return phone.replace( /[^0-9\\+]/g, '' )
     },
 
     go ( url ) {
-      window.open(url, '_blank')
+      window.open( url, '_blank' )
     }
   }
 }
