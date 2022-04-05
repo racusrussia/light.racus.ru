@@ -47,6 +47,12 @@ export default {
     MEILISEARCH_URL:         process.env.MEILISEARCH_URL
   },
 
+  plausible: { // Use as fallback if no runtime config is available at runtime
+    domain:         'light.edurussia.ru',
+    trackLocalhost: false,
+    apiHost:        'https://plausible.docsme.ru'
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/utils/plugins/lazy-load', ssr: false },
@@ -59,6 +65,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    'vue-plausible',
     '@nuxtjs/svg',            //https://github.com/nuxt-community/svg-module#file-loader
     '@nuxtjs/device'          // https://github.com/nuxt-community/device-module
   ],
